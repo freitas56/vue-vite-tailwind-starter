@@ -36,3 +36,7 @@ https://pnpm.io/motivation
 ```
 yarn icongen
 ```
+
+## License
+
+[MIT](https://github.com/72fcosta/vue-vite-tailwind-start/blob/master/LICENSE)
