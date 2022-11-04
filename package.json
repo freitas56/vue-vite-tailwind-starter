@@ -3,7 +3,7 @@
   "productName": "vue-vite-tailwind-starter",
   "author": "Fabio Costa <72fcosta@gmail.com>",
   "private": true,
-  "version": "0.0.2",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "format": "prettier --write \"**/*.{js,vue,html,md,json}\" --ignore-path .gitignore",
