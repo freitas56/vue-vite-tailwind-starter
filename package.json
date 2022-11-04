@@ -1,6 +1,7 @@
 {
   "name": "vue-vite-tailwind-starter",
   "productName": "vue-vite-tailwind-starter",
+  "author": "Fabio Costa <72fcosta@gmail.com>",
   "private": true,
   "version": "0.0.2",
   "type": "module",
