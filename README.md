@@ -26,7 +26,7 @@ https://pnpm.io/motivation
 - Prettier
 - Eslint
 
-## Additional
+## Optionals
 
 - Dotenv
 - Netlify
