@@ -30,7 +30,7 @@
 yarn icongen
 ```
 
-## Try it now
+## Try it
 
 ```
 npm i pnpm -g
