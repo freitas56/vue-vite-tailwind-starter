@@ -1,3 +1,5 @@
+![gh-cover](https://user-images.githubusercontent.com/25357754/199942788-33ff28c3-2061-460b-8a4c-49620bc6dbc3.png)
+
 # 72fcosta template
 
 - Vite
