@@ -2,31 +2,32 @@
 
 ## Features
 
-- :white_check_mark: Vite
-- :white_check_mark: Vue
-- :white_check_mark: Vue Router
-- :white_check_mark: Pinia
-- :white_check_mark: Axios
-- :white_large_square: Tailwind
+-  :white_check_mark: Vite
+-  :white_check_mark: Vue
+-  :white_check_mark: Vue Router
+-  :white_check_mark: Pinia
+-  :white_check_mark: Axios
+-  :white_large_square: Tailwind
 
 ## Preprocessors
 
-- :white_check_mark: PostCSS
-- :white_large_square: Babel
+-  :white_check_mark: PostCSS
+-  :white_large_square: Babel
 
 ## Helpers
 
-- :white_large_square: Prettier
-- :white_check_mark: Eslint
+-  :white_check_mark: Prettier
+-  :white_check_mark: Eslint
 
 ## Optionals
 
-- :white_check_mark: Dotenv
-- :white_check_mark: Netlify
+-  :white_check_mark: Dotenv
+-  :white_check_mark: Netlify
 
 ## Try it
 
 https://pnpm.io/motivation
+
 ```
 npx i pnpm -g
 ```
@@ -36,9 +37,11 @@ npx i pnpm -g
 ```
 pnpm icongen
 ```
+
 ```
 yarn icongen
 ```
+
 ```
 npm icongen
 ```
