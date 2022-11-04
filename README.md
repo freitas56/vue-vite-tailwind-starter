@@ -14,17 +14,17 @@ https://pnpm.io/motivation
 - [x] Vue Router
 - [x] Pinia
 - [x] Axios
-- [x] Tailwind
+- [ ] Tailwind
 
 ## Preprocessors
 
 - [x] PostCSS
-- [x] Babel
+- [ ] Babel
 
 ## Helpers
 
-- [x] Prettier
-- [x] Eslint
+- [ ] Prettier
+- [ ] Eslint
 
 ## Optionals
 
