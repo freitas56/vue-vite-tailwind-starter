@@ -27,7 +27,9 @@
 ## Icons generator
 
 ```
+pnpm icongen
 yarn icongen
+npm icongen
 ```
 
 ## Try it
