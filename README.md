@@ -7,20 +7,19 @@ npm i pnpm -g
 ```
 https://pnpm.io/motivation
 
-# Features
+## Features
 
 - Vite
 - Vue
 - Vue Router
 - Pinia
 - Axios
+- Tailwind
 
 ## Preprocessors
 
-- Pug
-- Sass
+- PostCSS
 - Babel
-- Autoprefixer
 
 ## Helpers
 
