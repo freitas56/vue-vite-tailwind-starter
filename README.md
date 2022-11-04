@@ -9,8 +9,8 @@ https://pnpm.io/motivation
 
 ## Features
 
-- Vite
-- Vue
+- :heavy_check_mark: Vite
+- :check_mark: Vue
 - Vue Router
 - Pinia
 - Axios
