@@ -34,7 +34,7 @@ yarn icongen
 
 https://pnpm.io/motivation
 ```
-npm i pnpm -g
+npx i pnpm -g
 ```
 
 ## Recommended for VSCode
