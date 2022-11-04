@@ -24,6 +24,13 @@
 - :white_check_mark: Dotenv
 - :white_check_mark: Netlify
 
+## Try it
+
+https://pnpm.io/motivation
+```
+npx i pnpm -g
+```
+
 ## Icons generator
 
 ```
@@ -34,13 +41,6 @@ yarn icongen
 ```
 ```
 npm icongen
-```
-
-## Try it
-
-https://pnpm.io/motivation
-```
-npx i pnpm -g
 ```
 
 ## Recommended for VSCode
