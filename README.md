@@ -2,7 +2,9 @@
 
 ## Try it now
 
+```
 npm i pnpm -g
+```
 https://pnpm.io/motivation
 
 # Features
