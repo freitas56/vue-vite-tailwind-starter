@@ -12,6 +12,7 @@
 ## Preprocessors
 
 -  :white_check_mark: PostCSS
+-  :white_check_mark: Pug
 -  :white_large_square: Babel
 
 ## Helpers
