@@ -7,6 +7,11 @@ npm i pnpm -g
 ```
 https://pnpm.io/motivation
 
+
+## Recommended for VSCode
+
+-https://github.com/tailwindlabs/tailwindcss-intellisense
+
 ## Features
 
 - :white_check_mark: Vite
