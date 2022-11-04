@@ -1,6 +1,6 @@
 {
-  "name": "72fcosta-vite-vue",
-  "productName": "72fcosta-vite-vue",
+  "name": "vue-vite-tailwind-starter",
+  "productName": "vue-vite-tailwind-starter",
   "private": true,
   "version": "0.0.2",
   "type": "module",
