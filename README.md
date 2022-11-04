@@ -24,7 +24,7 @@ https://pnpm.io/motivation
 ## Helpers
 
 - :white_large_square: Prettier
-- :white_large_square: Eslint
+- :white_check_mark: Eslint
 
 ## Optionals
 
