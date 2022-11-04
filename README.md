@@ -32,10 +32,10 @@ yarn icongen
 
 ## Try it
 
+https://pnpm.io/motivation
 ```
 npm i pnpm -g
 ```
-https://pnpm.io/motivation
 
 ## Recommended for VSCode
 
