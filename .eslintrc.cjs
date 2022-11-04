@@ -19,5 +19,7 @@ module.exports = {
       'comma-dangle': ['error', 'always-multiline'],
       'quotes': ['error', 'single'],
       'semi': ['error', 'never'],
+      'prefer-const': ['error'],
+      'no-unused-vars': ['error'],
    },
 }
