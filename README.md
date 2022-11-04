@@ -28,7 +28,11 @@
 
 ```
 pnpm icongen
+```
+```
 yarn icongen
+```
+```
 npm icongen
 ```
 
