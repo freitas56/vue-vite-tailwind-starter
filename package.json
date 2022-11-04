@@ -9,6 +9,7 @@
     "format": "prettier --write \"**/*.{js,vue,html,md,json}\" --ignore-path .gitignore",
     "dev": "vite",
     "build": "vite build",
+    "build-n": "node ./netlify-scripts/create-env.js && vite build",
     "icongen": "node src/utils/icongen.cjs"
   },
   "dependencies": {
