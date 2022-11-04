@@ -23,7 +23,6 @@
     "autoprefixer": "^10.4.13",
     "dotenv": "^16.0.3",
     "eslint": "^8.26.0",
-    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-vue": "^9.7.0",
     "icon-gen": "^3.0.1",
     "postcss": "^8.4.18",
