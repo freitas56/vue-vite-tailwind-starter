@@ -29,6 +29,7 @@ https://pnpm.io/motivation
 ## Additional
 
 - Dotenv
+- Netlify
 
 ## Icons generator
 
