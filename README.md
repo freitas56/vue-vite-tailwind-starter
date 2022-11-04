@@ -9,27 +9,27 @@ https://pnpm.io/motivation
 
 ## Features
 
-- :white_check_mark: Vite
-- :white_check_mark: Vue
-- :white_check_mark: Vue Router
-- :white_check_mark: Pinia
-- :white_check_mark: Axios
-- :white_check_mark: Tailwind
+- [x] Vite
+- [x] Vue
+- [x] Vue Router
+- [x] Pinia
+- [x] Axios
+- [x] Tailwind
 
 ## Preprocessors
 
-- :white_check_mark: PostCSS
-- :white_check_mark: Babel
+- [x] PostCSS
+- [x] Babel
 
 ## Helpers
 
-- :white_check_mark: Prettier
-- :white_check_mark: Eslint
+- [x] Prettier
+- [x] Eslint
 
 ## Optionals
 
-- :white_check_mark: Dotenv
-- :white_check_mark: Netlify
+- [x] Dotenv
+- [x] Netlify
 
 ## Icons generator
 
