@@ -23,7 +23,7 @@
 ## Optionals
 
 -  :white_check_mark: Dotenv
--  :white_check_mark: Netlify
+-  :white_check_mark: Netlify deploy
 
 ## Try it
 
