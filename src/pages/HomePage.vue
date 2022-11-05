@@ -1,5 +1,5 @@
 <template lang="pug">
-p.bg-slate-100 HomePage
+p HomePage
 
 </template>
 

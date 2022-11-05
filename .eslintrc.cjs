@@ -13,6 +13,5 @@ module.exports = {
       "no-unused-vars": ["error"],
       "no-var": ["error"],
       "no-multiple-empty-lines": ["error", { max: 1 }],
-      "array-element-newline": ["error", "never"],
    },
 }
