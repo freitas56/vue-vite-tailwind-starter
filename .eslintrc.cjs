@@ -1,5 +1,4 @@
 module.exports = {
-   root: true,
    parserOptions: {
       ecmaVersion: '2021',
    },
@@ -13,5 +12,6 @@ module.exports = {
       'no-autofix/prefer-const': ['error'],
       'no-unused-vars': ['error'],
       'no-var': ['error'],
+      'no-multiple-empty-lines': ['error', { max: 1 }],
    },
 }

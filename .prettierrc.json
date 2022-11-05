@@ -2,5 +2,6 @@
    "semi": false,
    "singleQuote": true,
    "endOfLine ": "lf",
-   "tabWidth": 3
+   "tabWidth": 3,
+   "arrowParens": "always"
 }
