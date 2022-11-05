@@ -8,9 +8,10 @@ module.exports = {
       'vue/setup-compiler-macros': true,
    },
    extends: ['plugin:vue/vue3-essential'],
-   plugins: ['vue'],
+   plugins: ['vue', 'no-autofix'],
    rules: {
-      'prefer-const': ['error'],
+      'no-autofix/prefer-const': ['error'],
       'no-unused-vars': ['error'],
+      'no-var': ['error'],
    },
 }
