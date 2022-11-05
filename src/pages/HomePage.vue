@@ -1,5 +1,5 @@
 <template lang="pug">
-p.bg-orange-100 HomePage
+p.bg-green-500 HomePage
 
 </template>
 
