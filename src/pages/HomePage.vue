@@ -1,12 +1,12 @@
 <template lang="pug">
-p HomePage
+p.bg-slate-100 HomePage
 
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue"
 
 export default defineComponent({
-   name: 'HomePage',
+   name: "HomePage",
 })
 </script>

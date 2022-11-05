@@ -24,6 +24,7 @@
     "autoprefixer": "^10.4.13",
     "dotenv": "^16.0.3",
     "eslint": "^8.26.0",
+    "eslint-plugin-html": "^7.1.0",
     "eslint-plugin-no-autofix": "^1.2.3",
     "eslint-plugin-vue": "^9.7.0",
     "icon-gen": "^3.0.1",
