@@ -47,6 +47,12 @@ yarn icongen
 npm icongen
 ```
 
+## Init tailwindcss
+
+```
+npx tailwindcss init -p
+```
+
 ## VSCode recommended
 
 https://github.com/tailwindlabs/tailwindcss-intellisense
