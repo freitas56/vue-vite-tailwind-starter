@@ -1,17 +1,18 @@
 module.exports = {
    parserOptions: {
-      ecmaVersion: '2021',
+      ecmaVersion: "2021",
    },
    env: {
       browser: true,
-      'vue/setup-compiler-macros': true,
+      "vue/setup-compiler-macros": true,
    },
-   extends: ['plugin:vue/vue3-essential'],
-   plugins: ['no-autofix', 'vue'],
+   extends: ["plugin:vue/vue3-essential"],
+   plugins: ["no-autofix", "vue"],
    rules: {
-      'no-autofix/prefer-const': ['error'],
-      'no-unused-vars': ['error'],
-      'no-var': ['error'],
-      'no-multiple-empty-lines': ['error', { max: 1 }],
+      "no-autofix/prefer-const": ["error"],
+      "no-unused-vars": ["error"],
+      "no-var": ["error"],
+      "no-multiple-empty-lines": ["error", { max: 1 }],
+      "array-element-newline": ["error", "never"],
    },
 }
