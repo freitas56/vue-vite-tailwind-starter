@@ -7,7 +7,7 @@ module.exports = {
       'vue/setup-compiler-macros': true,
    },
    extends: ['plugin:vue/vue3-essential'],
-   plugins: ['vue', 'no-autofix'],
+   plugins: ['no-autofix', 'vue'],
    rules: {
       'no-autofix/prefer-const': ['error'],
       'no-unused-vars': ['error'],

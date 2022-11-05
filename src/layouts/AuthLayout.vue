@@ -1,16 +1,12 @@
 <template lang="pug">
 router-view
-div
-  div
-
-  div
 
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue"
 
 export default defineComponent({
-   name: 'AuthLayout',
+   name: "AuthLayout",
 })
 </script>
