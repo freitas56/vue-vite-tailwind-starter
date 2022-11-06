@@ -7,7 +7,7 @@
 -  :white_check_mark: Vue Router
 -  :white_check_mark: Pinia
 -  :white_check_mark: Axios
--  :white_check_mark: Tailwind
+-  :white_large_square: Tailwind
 
 ## Preprocessors
 
