@@ -1,13 +1,11 @@
 <template lang="pug">
-div.bg-layout
-   router-view
-
+router-view
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue"
 
 export default defineComponent({
-   name: 'PublicLayout',
+   name: "PublicLayout",
 })
 </script>
