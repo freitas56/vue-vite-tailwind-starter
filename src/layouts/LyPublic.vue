@@ -1,7 +1,9 @@
 <template>
-   <cp-header />
-   <cp-main />
-   <cp-footer />
+   <div class="flex-col">
+      <cp-header />
+      <cp-main />
+      <cp-footer />
+   </div>
 </template>
 
 <script setup>
