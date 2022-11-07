@@ -1,9 +1,7 @@
 <template lang="pug">
-router-view
-</template>
+   CpHeader
+   router-view
+   CpFooter
+   </template>
 
-<script>
-export default {
-   name: "LyAuth",
-}
-</script>
+<script setup></script>
