@@ -1,6 +1,8 @@
 <template>
    <cp-header />
-   <router-view />
+   <div class="bg-indigo-200">
+      <router-view />
+   </div>
    <cp-footer />
 </template>
 
