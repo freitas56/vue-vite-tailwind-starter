@@ -1,7 +1,7 @@
 <template>
-   <CpHeader />
-   router-view
-   <CpFooter />
+   <cp-header />
+   <router-view />
+   <cp-footer />
 </template>
 
 <script setup>
