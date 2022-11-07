@@ -1,5 +1,4 @@
-![gh-cover](https://user-images.githubusercontent.com/25357754/199942788-33ff28c3-2061-460b-8a4c-49620bc6dbc3.png)
-
+![gh-cover](https://user-images.githubusercontent.com/25357754/200297616-a3f258a0-0b70-429f-9f90-0facf07095c8.png)
 ## Features
 
 -  :white_check_mark: Vite
