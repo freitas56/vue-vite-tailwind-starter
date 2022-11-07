@@ -1,5 +1,5 @@
 <template>
-   <div class="flex-col">
+   <div class="flex flex-col h-full bg-orange-700">
       <cp-header />
       <cp-main />
       <cp-footer />
