@@ -6,7 +6,6 @@
    "version": "0.0.2",
    "type": "module",
    "scripts": {
-      "format": "prettier --write \"**/*.{js,vue,html,md,json}\" --ignore-path .gitignore",
       "dev": "vite",
       "build": "vite build",
       "build-n": "node ./netlify-scripts/create-env.js && vite build",
