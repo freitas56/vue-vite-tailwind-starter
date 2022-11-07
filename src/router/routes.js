@@ -1,25 +1,19 @@
 const routes = [
    {
-      path: '/',
-      component: () => import('./../layouts/PublicLayout.vue'),
+      path: "/",
+      component: () => import("../layouts/LyPublic.vue"),
       children: [
          {
-            name: 'homePage',
-            path: '',
-            component: () => import('./../pages/HomePage.vue'),
+            name: "pgHome",
+            path: "",
+            component: () => import("../pages/PgHome.vue"),
          },
       ],
    },
    {
-      path: '/auth',
-      component: () => import('./../layouts/AuthLayout.vue'),
-      children: [
-         {
-            name: 'authPage',
-            path: 'page',
-            component: () => import('./../pages/AuthPage.vue'),
-         },
-      ],
+      path: "/auth",
+      component: () => import("../layouts/LyAuth.vue"),
+      children: [],
    },
 ]
 

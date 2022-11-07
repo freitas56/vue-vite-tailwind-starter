@@ -4,6 +4,6 @@ router-view
 
 <script>
 export default {
-   name: "AuthLayout",
+   name: "LyAuth",
 }
 </script>
