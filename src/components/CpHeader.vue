@@ -27,8 +27,14 @@
                   class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
                >
                   <div class="flex flex-shrink-0 items-center">
-                     <img class="block h-8 w-auto lg:hidden" src="/logo.png" />
-                     <img class="hidden h-8 w-auto lg:block" src="/logo.png" />
+                     <img
+                        class="block h-8 w-auto lg:hidden"
+                        src="/imgs/logo.png"
+                     />
+                     <img
+                        class="hidden h-8 w-auto lg:block"
+                        src="/imgs/logo.png"
+                     />
                   </div>
                   <div class="hidden sm:ml-6 sm:block">
                      <div class="flex space-x-4">
@@ -55,8 +61,9 @@
                      type="button"
                      class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
-                     <span class="sr-only">View notifications</span>
-                     <BellIcon class="h-6 w-6" aria-hidden="true" />
+                     <svg class="fill-blue-500 ...">
+                        <!-- ... -->
+                     </svg>
                   </button>
 
                   <!-- Profile dropdown -->
@@ -102,7 +109,7 @@ import {
    Menu,
    MenuButton,
 } from "@headlessui/vue"
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline"
+import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline"
 
 const navigation = []
 </script>
