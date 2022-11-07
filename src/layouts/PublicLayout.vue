@@ -1,13 +1,18 @@
 <template lang="pug">
-CompNavbar
+TheHeader
 router-view
-CompFooter
+TheFooter
 </template>
 
 <script>
-import { defineComponent } from "vue"
+import TheHeader from "../components/TheHeader.vue"
+import TheFooter from "../components/TheFooter.vue"
 
-export default defineComponent({
+export default {
    name: "PublicLayout",
-})
+   components: {
+      TheHeader,
+      TheFooter,
+   },
+}
 </script>
