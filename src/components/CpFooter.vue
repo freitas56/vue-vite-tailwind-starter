@@ -1,5 +1,5 @@
 <template>
-   <div class="bg-violet-900 text-violet-50">CpFooter</div>
+   <div class="bg-indigo-500 text-indigo-50">CpFooter</div>
 </template>
 
 <script>
