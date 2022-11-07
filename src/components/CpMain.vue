@@ -1,7 +1,7 @@
 <template>
-   <div class="bg-indigo-200">
+   <main class="bg-indigo-200">
       <router-view />
-   </div>
+   </main>
 </template>
 
 <script setup></script>
