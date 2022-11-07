@@ -1,5 +1,7 @@
 <template lang="pug">
+CompNavbar
 router-view
+CompFooter
 </template>
 
 <script>
