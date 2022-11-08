@@ -51,10 +51,8 @@
                <div
                   class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
                >
-                  <img
-                     class="block h-8 w-auto"
-                     src="/svgs/icons8-github.svg?color=indigo&shade=500"
-                  />
+                  <XMarkIcon class="block h-6 w-6" aria-hidden="true" />
+                  <WifiIcon class="block h-6 w-6" aria-hidden="true" />
 
                   <!-- Profile dropdown -->
                   <Menu as="div" class="relative">
@@ -99,7 +97,7 @@ import {
    Menu,
    MenuButton,
 } from "@headlessui/vue"
-import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline"
+import { Bars3Icon, XMarkIcon, WifiIcon } from "@heroicons/vue/24/outline"
 
 const navigation = []
 </script>
