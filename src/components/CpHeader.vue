@@ -42,8 +42,9 @@
                               'px-3 py-2 rounded-md text-sm font-medium',
                            ]"
                            :aria-current="item.current ? 'page' : undefined"
-                           >{{ item.name }}</a
                         >
+                           {{ item.name }}
+                        </a>
                      </div>
                   </div>
                </div>
@@ -54,7 +55,6 @@
                      class="block h-8 w-auto"
                      src="/svgs/icons8-github.svg?color=indigo&shade=500"
                   />
-                  <button type="button" class="rounded-full p-1">a</button>
 
                   <!-- Profile dropdown -->
                   <Menu as="div" class="relative">
@@ -83,8 +83,8 @@
                      'block px-3 py-2 rounded-md text-base font-medium',
                   ]"
                   :aria-current="item.current ? 'page' : undefined"
-                  >{{ item.name }}</disclosure-button
-               >
+                  >{{ item.name }}
+               </disclosure-button>
             </div>
          </disclosure-panel>
       </disclosure>
