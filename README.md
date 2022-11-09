@@ -53,6 +53,14 @@ npm icongen
 npx tailwindcss init -p
 ```
 
+## Bootstrap icons
+
+```
+import { BsCalendar4Range } from '@kalimahapps/vue-icons/bs';
+```
+
+https://www.npmjs.com/package/@kalimahapps/vue-icons
+
 ## VSCode recommended
 
 https://github.com/tailwindlabs/tailwindcss-intellisense
