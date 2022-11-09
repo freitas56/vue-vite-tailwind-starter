@@ -41,27 +41,6 @@
                <div
                   class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
                >
-                  <a
-                     class="rounded-full"
-                     href="https://github.com/72fcosta/vue-vite-tailwind-starter"
-                  >
-                     <BsMoonStars class="h-5 w-5" />
-                  </a>
-
-                  <a
-                     class="rounded-full"
-                     href="https://github.com/72fcosta/vue-vite-tailwind-starter"
-                  >
-                     <BsSun class="h-5 w-5" />
-                  </a>
-
-                  <a
-                     class="rounded-full"
-                     href="https://github.com/72fcosta/vue-vite-tailwind-starter"
-                  >
-                     <BsGithub class="h-5 w-5" />
-                  </a>
-
                   <!-- Profile dropdown -->
                   <Menu as="div" class="relative">
                      <div>
@@ -105,7 +84,6 @@ import {
    Menu,
    MenuButton,
 } from "@headlessui/vue"
-import { BsSun, BsMoonStars, BsGithub } from "@kalimahapps/vue-icons/bs"
 
 const navigation = []
 </script>

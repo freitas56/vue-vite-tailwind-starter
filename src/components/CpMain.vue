@@ -1,5 +1,5 @@
 <template>
-   <main class="bg-indigo-200 grow">
+   <main class="bg-slate-900 grow">
       <router-view />
    </main>
 </template>
