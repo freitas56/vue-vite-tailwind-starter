@@ -1,11 +1,21 @@
 <template>
    <div class="py-8">
       <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-         <p class="text-slate-400">
-            let templateStart=["Vue", "Vite", "Tailwind"]"
+         <p class="text-slate-400" style="color: #33ccff">
+            <span style="color: #b499ff">let </span>
+            <span style="color: #a6accd"> templateStart = </span>
+            <span>["</span>
+            <span style="color: #b9e880">Vue</span>
+            <span>", "</span>
+            <span style="color: #b9e880"> Vite</span>
+            <span>", "</span>
+            <span style="color: #b9e880"> Tailwind</span>
+            <span>"]</span>
          </p>
       </div>
    </div>
 </template>
 
-<script setup></script>
+<script setup>
+let templateStart = ["Vue", "Vite", "Tailwind"]
+</script>
