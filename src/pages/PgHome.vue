@@ -11,11 +11,21 @@
             <span>", "</span>
             <span style="color: #b9e880"> Tailwind</span>
             <span>"]</span>
+            <span class="blink" style="color: #ffcc00">|</span>
          </p>
       </div>
    </div>
 </template>
 
-<script setup>
-let templateStart = ["Vue", "Vite", "Tailwind"]
-</script>
+<script setup></script>
+
+<style>
+.blink {
+   animation: blink-animation 1s steps(2, start) infinite;
+}
+@keyframes blink-animation {
+   to {
+      visibility: hidden;
+   }
+}
+</style>
