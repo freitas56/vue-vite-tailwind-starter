@@ -11,8 +11,6 @@
                      class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                   >
                      <span class="sr-only">Open main menu</span>
-                     <Bars3Icon v-if="!open" class="block h-6 w-6" />
-                     <XMarkIcon v-else class="block h-6 w-6" />
                   </DisclosureButton>
                </div>
                <div
@@ -43,8 +41,7 @@
                <div
                   class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
                >
-                  <XMarkIcon class="block h-6 w-6" aria-hidden="true" />
-                  <WifiIcon class="block h-6 w-6" />
+                  <BsGithub class="block h-6 w-6" />
 
                   <!-- Profile dropdown -->
                   <Menu as="div" class="relative">
@@ -89,7 +86,7 @@ import {
    Menu,
    MenuButton,
 } from "@headlessui/vue"
-import { Bars3Icon, XMarkIcon, WifiIcon } from "vue-simple-icons"
+import { BsGithub } from "@kalimahapps/vue-icons/bs"
 
 const navigation = []
 </script>
