@@ -45,7 +45,21 @@
                      class="rounded-full"
                      href="https://github.com/72fcosta/vue-vite-tailwind-starter"
                   >
-                     <BsGithub class="h-6 w-6" />
+                     <BsMoonStars class="h-5 w-5" />
+                  </a>
+
+                  <a
+                     class="rounded-full"
+                     href="https://github.com/72fcosta/vue-vite-tailwind-starter"
+                  >
+                     <BsSun class="h-5 w-5" />
+                  </a>
+
+                  <a
+                     class="rounded-full"
+                     href="https://github.com/72fcosta/vue-vite-tailwind-starter"
+                  >
+                     <BsGithub class="h-5 w-5" />
                   </a>
 
                   <!-- Profile dropdown -->
@@ -91,7 +105,7 @@ import {
    Menu,
    MenuButton,
 } from "@headlessui/vue"
-import { BsGithub } from "@kalimahapps/vue-icons/bs"
+import { BsSun, BsMoonStars, BsGithub } from "@kalimahapps/vue-icons/bs"
 
 const navigation = []
 </script>
