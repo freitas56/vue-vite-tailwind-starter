@@ -1,27 +1,19 @@
 <template>
    <header>
-      <disclosure as="nav" class="bg-gray-200" v-slot="{ open }">
+      <Disclosure as="nav" class="bg-gray-200" v-slot="{ open }">
          <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div class="relative flex h-16 items-center justify-between">
                <div
                   class="absolute inset-y-0 left-0 flex items-center sm:hidden"
                >
                   <!-- Mobile menu button-->
-                  <disclosure-button
+                  <DisclosureButton
                      class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                   >
                      <span class="sr-only">Open main menu</span>
-                     <Bars3Icon
-                        v-if="!open"
-                        class="block h-6 w-6"
-                        aria-hidden="true"
-                     />
-                     <XMarkIcon
-                        v-else
-                        class="block h-6 w-6"
-                        aria-hidden="true"
-                     />
-                  </disclosure-button>
+                     <Bars3Icon v-if="!open" class="block h-6 w-6" />
+                     <XMarkIcon v-else class="block h-6 w-6" />
+                  </DisclosureButton>
                </div>
                <div
                   class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
@@ -52,7 +44,7 @@
                   class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
                >
                   <XMarkIcon class="block h-6 w-6" aria-hidden="true" />
-                  <WifiIcon class="block h-6 w-6" aria-hidden="true" />
+                  <WifiIcon class="block h-6 w-6" />
 
                   <!-- Profile dropdown -->
                   <Menu as="div" class="relative">
@@ -67,9 +59,9 @@
             </div>
          </div>
 
-         <disclosure-panel class="sm:hidden">
+         <DisclosurePanel class="sm:hidden">
             <div class="space-y-1 px-2 pt-2 pb-3">
-               <disclosure-button
+               <DisclosureButton
                   v-for="item in navigation"
                   :key="item.name"
                   as="a"
@@ -82,10 +74,10 @@
                   ]"
                   :aria-current="item.current ? 'page' : undefined"
                   >{{ item.name }}
-               </disclosure-button>
+               </DisclosureButton>
             </div>
-         </disclosure-panel>
-      </disclosure>
+         </DisclosurePanel>
+      </Disclosure>
    </header>
 </template>
 
@@ -97,7 +89,7 @@ import {
    Menu,
    MenuButton,
 } from "@headlessui/vue"
-import { Bars3Icon, XMarkIcon, WifiIcon } from "@heroicons/vue/24/outline"
+import { Bars3Icon, XMarkIcon, WifiIcon } from "vue-simple-icons"
 
 const navigation = []
 </script>
