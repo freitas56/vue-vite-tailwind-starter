@@ -41,7 +41,12 @@
                <div
                   class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
                >
-                  <BsGithub class="block h-6 w-6" />
+                  <a
+                     class="rounded-full"
+                     href="https://github.com/72fcosta/vue-vite-tailwind-starter"
+                  >
+                     <BsGithub class="h-6 w-6" />
+                  </a>
 
                   <!-- Profile dropdown -->
                   <Menu as="div" class="relative">
