@@ -8,6 +8,7 @@
 -  :white_check_mark: Pinia
 -  :white_check_mark: Axios
 -  :white_check_mark: Tailwind
+-  :white_check_mark: Bootstrap Icons
 
 ## Preprocessors
 
