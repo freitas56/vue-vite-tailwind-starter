@@ -16,7 +16,7 @@
                </a> -->
             </div>
 
-            <div class="ml-3">
+            <div class="ml-6">
                <a
                   class="rounded-full hover:opacity-90"
                   href="https://github.com/72fcosta/vue-vite-tailwind-starter"
