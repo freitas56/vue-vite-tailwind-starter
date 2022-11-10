@@ -1,7 +1,9 @@
 <template>
-   <main class="flex bg-slate-900 grow">
+   <main class="flex bg-white dark:bg-slate-900 grow">
       <router-view />
    </main>
 </template>
 
-<script setup></script>
+<script setup>
+const dark = true
+</script>
