@@ -1,5 +1,5 @@
 <template>
-   <main class="bg-slate-900 grow">
+   <main class="flex bg-slate-900 grow">
       <router-view />
    </main>
 </template>
