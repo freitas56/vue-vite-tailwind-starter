@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-full bg-violet-50" lang="pt-br">
+<html class="h-full" lang="pt-br">
    <head>
       <title>["Vue", "Vite", "Tailwind"]</title>
 
@@ -33,6 +33,19 @@
          href="icons/favicon-16.png"
       />
       <link rel="icon" type="image/ico" href="favicon.ico" />
+      <script>
+         if (
+            localStorage.theme === "dark" ||
+            (!("theme" in localStorage) &&
+               window.matchMedia("(prefers-color-scheme: dark)").matches)
+         ) {
+            console.log("if")
+            document.documentElement.classList.add("dark")
+         } else {
+            console.log("else")
+            document.documentElement.classList.remove("dark")
+         }
+      </script>
    </head>
    <body class="h-full">
       <div id="app" class="h-full"></div>
