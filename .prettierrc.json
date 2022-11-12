@@ -4,5 +4,6 @@
    "endOfLine ": "lf",
    "tabWidth": 3,
    "arrowParens": "always",
-   "bracketSameLine": true
+   "bracketSameLine": true,
+   "printWidth": 100
 }

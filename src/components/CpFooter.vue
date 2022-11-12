@@ -6,17 +6,33 @@
          </a>
 
          <div class="flex items-center text-slate-600 dark:text-slate-400">
-            <div>
-               <div
+            <Listbox v-model="themeIsDark">
+               <ListboxButton>{{ themeIsDark }}</ListboxButton>
+               <transition
+                  leave-active-class="transition duration-100 ease-in"
+                  leave-from-class="opacity-100"
+                  leave-to-class="opacity-0">
+                  <ListboxOptions>
+                     <ListboxOption
+                        v-for="item in themeIsDarkOptions"
+                        :key="item"
+                        :value="item"
+                        as="template">
+                        <li>{{ item }}</li>
+                     </ListboxOption>
+                  </ListboxOptions>
+               </transition>
+            </Listbox>
+            <!-- <div
                   class="rounded-full hover:opacity-90"
                   @click="setThemeIsDark(true)">
                   <BsMoonStars class="h-5 w-auto" />
-               </div>
+               </div> -->
 
-               <!-- <a class="rounded-full" hover:opacity-90 href="#">
+            <!-- <a class="rounded-full" hover:opacity-90 href="#">
                   <BsSun class="h-5 w-auto" />
                </a> -->
-            </div>
+            <!-- </div> -->
 
             <div class="ml-6">
                <a
@@ -31,9 +47,14 @@
 </template>
 
 <script setup>
+import { ref } from "vue"
+import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from "@headlessui/vue"
 import { BsMoonStars, BsGithub } from "@kalimahapps/vue-icons/bs"
 import { useMainStore } from "../stores/main"
 const store = useMainStore()
+
+const themeIsDarkOptions = ["Sistema", "Escuro", "Claro"]
+const themeIsDark = ref(themeIsDarkOptions[0])
 
 const setThemeIsDark = (themeIsDark) => {
    localStorage.themeIsDark = themeIsDark ? "true" : "false"
