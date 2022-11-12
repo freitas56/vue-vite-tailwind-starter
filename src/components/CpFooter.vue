@@ -58,6 +58,7 @@ import {
 } from "@headlessui/vue"
 import { BsGithub } from "@kalimahapps/vue-icons/bs"
 import { useMainStore } from "../stores/main"
+import { loadConfigFromFile } from "vite"
 const store = useMainStore()
 
 const themeIsDarkOptions = [
@@ -65,7 +66,6 @@ const themeIsDarkOptions = [
    { id: "classDark", label: "Escuro" },
    { id: "classLight", label: "Claro" },
 ]
-const themeIsDark = ref(themeIsDarkOptions[0])
 
 onMounted(() => {
    console.log("onMounted")
@@ -74,24 +74,19 @@ onMounted(() => {
 
 const solveThemeIsDark = () => {
    const localStorageContent = localStorage.getItem("twColorScheme")
-   if (localStorageContent) {
+   if (localStorageContent && loadConfigFromFile !== "system") {
       console.log(localStorageContent)
+      const found = themeIsDarkOptions.find(
+         (item) => item.id === localStorageContent
+      )
+      const colorScheme = ref(found)
+      store.setColorSchema(colorScheme)
    } else {
       if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
          console.log("sistema dark")
       } else {
          console.log("sistema light")
       }
-   }
-}
-
-const setColorSchema = (colorScheme) => {
-   if (colorScheme === "system") {
-      localStorage.removeItem("twColorSchema")
-      store.setColorSchema(undefined)
-   } else {
-      localStorage.twColorScheme = colorScheme
-      store.setColorSchema(colorScheme)
    }
 }
 </script>
