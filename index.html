@@ -8,16 +8,33 @@
       <meta name="msapplication-tap-highlight" content="no" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <link rel="icon" type="image/png" sizes="128x128" href="icons/favicon-128.png" />
-      <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png" />
+      <link
+         rel="icon"
+         type="image/png"
+         sizes="128x128"
+         href="icons/favicon-128.png" />
+      <link
+         rel="icon"
+         type="image/png"
+         sizes="96x96"
+         href="icons/favicon-96.png" />
+      <link
+         rel="icon"
+         type="image/png"
+         sizes="32x32"
+         href="icons/favicon-32.png" />
+      <link
+         rel="icon"
+         type="image/png"
+         sizes="16x16"
+         href="icons/favicon-16.png" />
       <link rel="icon" type="image/ico" href="favicon.ico" />
 
       <script>
          if (
-            localStorage.themeIsDark === "true" ||
-            (!("themeIsDark" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+            localStorage.twColorScheme === "dark" ||
+            (!("twColorScheme" in localStorage) &&
+               window.matchMedia("(prefers-color-scheme: dark)").matches)
          ) {
             document.documentElement.classList.add("dark")
          } else {

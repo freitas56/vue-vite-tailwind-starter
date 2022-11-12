@@ -18,7 +18,7 @@
                         :key="index"
                         :value="item"
                         as="template">
-                        <li @click="setThemeIsDark(item.value)">
+                        <li @click="setColorSchema(item.id)">
                            {{ item.label }}
                         </li>
                      </ListboxOption>
@@ -49,7 +49,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref, onMounted } from "vue"
 import {
    Listbox,
    ListboxButton,
@@ -67,8 +67,31 @@ const themeIsDarkOptions = [
 ]
 const themeIsDark = ref(themeIsDarkOptions[0])
 
-const setThemeIsDark = (themeIsDark) => {
-   localStorage.themeIsDark = themeIsDark ? "true" : "false"
-   store.setThemeIsDark(themeIsDark)
+onMounted(() => {
+   console.log("onMounted")
+   solveThemeIsDark()
+})
+
+const solveThemeIsDark = () => {
+   const localStorageContent = localStorage.getItem("twColorScheme")
+   if (localStorageContent) {
+      console.log(localStorageContent)
+   } else {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+         console.log("sistema dark")
+      } else {
+         console.log("sistema light")
+      }
+   }
+}
+
+const setColorSchema = (colorScheme) => {
+   if (colorScheme === "system") {
+      localStorage.removeItem("twColorSchema")
+      store.setColorSchema(undefined)
+   } else {
+      localStorage.twColorScheme = colorScheme
+      store.setColorSchema(colorScheme)
+   }
 }
 </script>
