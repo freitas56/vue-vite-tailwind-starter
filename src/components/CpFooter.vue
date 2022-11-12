@@ -9,8 +9,7 @@
             <div>
                <div
                   class="rounded-full hover:opacity-90"
-                  @click="setDark('dark')"
-               >
+                  @click="setThemeIsDark(true)">
                   <BsMoonStars class="h-5 w-auto" />
                </div>
 
@@ -22,8 +21,7 @@
             <div class="ml-6">
                <a
                   class="rounded-full hover:opacity-90"
-                  href="https://github.com/72fcosta/vue-vite-tailwind-starter"
-               >
+                  href="https://github.com/72fcosta/vue-vite-tailwind-starter">
                   <BsGithub class="h-5 w-auto" />
                </a>
             </div>
@@ -35,10 +33,10 @@
 <script setup>
 import { BsMoonStars, BsGithub } from "@kalimahapps/vue-icons/bs"
 import { useMainStore } from "../stores/main"
-
 const store = useMainStore()
 
-const setDark = (twTheme) => {
-   store.setDark(twTheme)
+const setThemeIsDark = (themeIsDark) => {
+   localStorage.themeIsDark = themeIsDark ? "true" : "false"
+   store.setThemeIsDark(themeIsDark)
 }
 </script>

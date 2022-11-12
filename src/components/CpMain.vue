@@ -4,6 +4,4 @@
    </main>
 </template>
 
-<script setup>
-const dark = true
-</script>
+<script setup></script>

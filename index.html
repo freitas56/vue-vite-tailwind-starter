@@ -32,8 +32,8 @@
 
       <script>
          if (
-            localStorage.twTheme === "dark" ||
-            (!("twTheme" in localStorage) &&
+            localStorage.themeIsDark === "true" ||
+            (!("themeIsDark" in localStorage) &&
                window.matchMedia("(prefers-color-scheme: dark)").matches)
          ) {
             console.log("if")

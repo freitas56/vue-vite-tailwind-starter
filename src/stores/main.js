@@ -3,13 +3,13 @@ import { defineStore } from "pinia"
 export const useMainStore = defineStore("main", {
    state: () => {
       return {
-         twTheme: undefined,
+         themeIsDark: undefined,
       }
    },
    actions: {
-      setDark(twTheme) {
-         this.twTheme = twTheme
-         console.log("setDark", this.twTheme)
+      setThemeIsDark(themeIsDark) {
+         this.themeIsDark = themeIsDark
+         console.log("setDark", this.themeIsDark)
       },
    },
 })
