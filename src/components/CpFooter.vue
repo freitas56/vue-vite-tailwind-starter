@@ -7,9 +7,13 @@
 
          <div class="flex items-center text-slate-600 dark:text-slate-400">
             <div>
-               <a class="rounded-full hover:opacity-90" href="#">
+               <div
+                  class="rounded-full hover:opacity-90"
+                  @click="setDark('dark')"
+               >
                   <BsMoonStars class="h-5 w-auto" />
-               </a>
+               </div>
+               {{ store.test }}
 
                <!-- <a class="rounded-full" hover:opacity-90 href="#">
                   <BsSun class="h-5 w-auto" />
@@ -30,5 +34,12 @@
 </template>
 
 <script setup>
-import { BsSun, BsMoonStars, BsGithub } from "@kalimahapps/vue-icons/bs"
+import { BsMoonStars, BsGithub } from "@kalimahapps/vue-icons/bs"
+import { useMainStore } from "../stores/main"
+
+const store = useMainStore()
+
+const setDark = (twTheme) => {
+   store.setDark(twTheme)
+}
 </script>
