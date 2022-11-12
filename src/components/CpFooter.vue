@@ -48,7 +48,12 @@
 
 <script setup>
 import { ref } from "vue"
-import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from "@headlessui/vue"
+import {
+   Listbox,
+   ListboxButton,
+   ListboxOptions,
+   ListboxOption,
+} from "@headlessui/vue"
 import { BsMoonStars, BsGithub } from "@kalimahapps/vue-icons/bs"
 import { useMainStore } from "../stores/main"
 const store = useMainStore()
