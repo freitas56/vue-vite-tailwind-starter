@@ -7,18 +7,20 @@
 
          <div class="flex items-center text-slate-600 dark:text-slate-400">
             <Listbox v-model="themeIsDark">
-               <ListboxButton>{{ themeIsDark }}</ListboxButton>
+               <ListboxButton>{{ themeIsDark.label }}</ListboxButton>
                <transition
                   leave-active-class="transition duration-100 ease-in"
                   leave-from-class="opacity-100"
                   leave-to-class="opacity-0">
                   <ListboxOptions>
                      <ListboxOption
-                        v-for="item in themeIsDarkOptions"
-                        :key="item"
+                        v-for="(item, index) in themeIsDarkOptions"
+                        :key="index"
                         :value="item"
                         as="template">
-                        <li>{{ item }}</li>
+                        <li @click="setThemeIsDark(item.value)">
+                           {{ item.label }}
+                        </li>
                      </ListboxOption>
                   </ListboxOptions>
                </transition>
@@ -54,11 +56,15 @@ import {
    ListboxOptions,
    ListboxOption,
 } from "@headlessui/vue"
-import { BsMoonStars, BsGithub } from "@kalimahapps/vue-icons/bs"
+import { BsGithub } from "@kalimahapps/vue-icons/bs"
 import { useMainStore } from "../stores/main"
 const store = useMainStore()
 
-const themeIsDarkOptions = ["Sistema", "Escuro", "Claro"]
+const themeIsDarkOptions = [
+   { id: "system", label: "Sistema" },
+   { id: "classDark", label: "Escuro" },
+   { id: "classLight", label: "Claro" },
+]
 const themeIsDark = ref(themeIsDarkOptions[0])
 
 const setThemeIsDark = (themeIsDark) => {
