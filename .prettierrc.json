@@ -3,5 +3,6 @@
    "singleQuote": false,
    "endOfLine ": "lf",
    "tabWidth": 3,
-   "arrowParens": "always"
+   "arrowParens": "always",
+   "bracketSameLine": true
 }

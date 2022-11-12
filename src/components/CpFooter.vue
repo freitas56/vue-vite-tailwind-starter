@@ -13,7 +13,6 @@
                >
                   <BsMoonStars class="h-5 w-auto" />
                </div>
-               {{ store.test }}
 
                <!-- <a class="rounded-full" hover:opacity-90 href="#">
                   <BsSun class="h-5 w-auto" />
