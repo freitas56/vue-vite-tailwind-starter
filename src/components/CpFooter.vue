@@ -94,16 +94,16 @@ onBeforeMount(() => {
    <footer class="bg-slate-100 dark:bg-slate-800 py-4">
       <div class="flex justify-between mx-auto max-w-7xl px-2">
          <button
-            class="flex ring-2 ring-slate-400 rounded-md gap-x-3 px-3 py-2"
+            class="flex ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 px-3 py-2"
             @click="openMySite">
             <BsClipboardHeart class="h-5 w-auto" />
             <span class="text-base">72fcosta</span>
          </button>
 
-         <div class="flex items-center justify-between">
+         <div class="flex items-center justify-between gap-x-3">
             <Popover>
                <PopoverButton
-                  class="flex ring-2 ring-slate-400 rounded-md gap-x-3 px-3 py-2">
+                  class="flex ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 px-3 py-2">
                   <BsDisplay v-if="!isClassDark" class="h-5 w-auto" />
                   <BsChevronUp v-else class="h-5 w-auto" />
                   <Component :is="colorScheme.icon" class="h-5 w-auto" />
@@ -111,7 +111,7 @@ onBeforeMount(() => {
             </Popover>
 
             <button
-               class="flex ring-2 ring-slate-400 rounded-md gap-x-3 px-3 py-2"
+               class="flex ring-2 ring-slate-200 ring-offset-2 rounded-md px-3 py-2"
                @click="openMyRepo">
                <BsGithub class="h-5 w-auto" />
             </button>
