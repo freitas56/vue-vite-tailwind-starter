@@ -1,11 +1,6 @@
 <script setup>
 import { ref, onBeforeMount } from "vue"
-import {
-   Popover,
-   PopoverButton,
-   // ListboxOptions,
-   // ListboxOption,
-} from "@headlessui/vue"
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue"
 import {
    BsGithub,
    BsClipboardHeart,
@@ -36,11 +31,11 @@ console.log("🚀 ", classDark)
 
 const colorScheme = ref(null)
 
-// const colorSchemeOptions = [
-//    { id: "system", label: "Sistema", icon: BsDisplay },
-//    { id: "classDark", label: "Escuro", icon: BsMoonStars },
-//    { id: "classLight", label: "Claro", icon: BsSun },
-// ]
+const colorSchemeOptions = [
+   { id: "system", label: "Sistema", icon: BsDisplay },
+   { id: "classDark", label: "Escuro", icon: BsMoonStars },
+   { id: "classLight", label: "Claro", icon: BsSun },
+]
 const colorSchemes = [
    { id: "systemDark", label: "Escuro", icon: BsMoonStars },
    { id: "systemLight", label: "Claro", icon: BsSun },
@@ -101,13 +96,33 @@ onBeforeMount(() => {
          </button>
 
          <div class="flex items-center justify-between gap-x-3">
-            <Popover>
+            <Popover class="relative">
                <PopoverButton
                   class="flex ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 px-3 py-2">
                   <BsDisplay v-if="!isClassDark" class="h-5 w-auto" />
                   <BsChevronUp v-else class="h-5 w-auto" />
                   <Component :is="colorScheme.icon" class="h-5 w-auto" />
                </PopoverButton>
+               <transition
+                  enter-active-class="transition duration-200 ease-out"
+                  enter-from-class="translate-y-1 opacity-0"
+                  enter-to-class="translate-y-0 opacity-100"
+                  leave-active-class="transition duration-150 ease-in"
+                  leave-from-class="translate-y-0 opacity-100"
+                  leave-to-class="translate-y-1 opacity-0">
+                  <PopoverPanel class="absolute bottom-14 right-0">
+                     <div
+                        class="flex flex-col bg-slate-100 rounded-md p-3 gap-2">
+                        <button
+                           v-for="(item, index) in colorSchemeOptions"
+                           :key="index"
+                           class="flex w-full ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 gap-y-8 px-3 py-2">
+                           <Component :is="item.icon" class="h-5 w-auto" />
+                           <div class="text-b">{{ item.label }}</div>
+                        </button>
+                     </div>
+                  </PopoverPanel>
+               </transition>
             </Popover>
 
             <button
