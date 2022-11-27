@@ -1,12 +1,17 @@
 <script setup>
 import { ref, onBeforeMount } from "vue"
 import {
-   Listbox,
-   ListboxButton,
+   Popover,
+   PopoverButton,
    ListboxOptions,
    ListboxOption,
 } from "@headlessui/vue"
-import { BsGithub, BsMoonStars, BsSun } from "@kalimahapps/vue-icons/bs"
+import {
+   BsGithub,
+   BsDisplay,
+   BsMoonStars,
+   BsSun,
+} from "@kalimahapps/vue-icons/bs"
 
 const isClassDark = localStorage.getItem("twColorScheme")
 console.log("🚀 ~ localStorage=> ", !!isClassDark)
@@ -27,27 +32,21 @@ mmObj.addEventListener("change", (res) => {
 const classDark = isClassDark ? isClassDark : isSystemDark(mmObj)
 console.log("🚀 ", classDark)
 
-// import { useMainStore } from "../stores/main"
-// const store = useMainStore()
-// if (
-//    localStorage.twColorScheme === "dark" ||
-//    (!("twColorScheme" in localStorage) &&
-//       window.matchMedia("(prefers-color-scheme: dark)").matches)
-// ) {
-//    document.documentElement.classList.add("dark")
-// } else {
-//    document.documentElement.classList.remove("dark")
-// }
 const colorScheme = ref(null)
 
 const colorSchemeOptions = [
+   { id: "system", label: "Sistema", icon: BsDisplay },
+   { id: "classDark", label: "Escuro", icon: BsMoonStars },
+   { id: "classLight", label: "Claro", icon: BsSun },
+]
+const colorSchemes = [
    { id: "systemDark", label: "Escuro", icon: BsMoonStars },
    { id: "systemLight", label: "Claro", icon: BsSun },
    { id: "classDark", label: "Escuro", icon: BsMoonStars },
    { id: "classLight", label: "Claro", icon: BsSun },
 ]
 const solvedColorScheme = (id) => {
-   return colorSchemeOptions.find((item) => item.id === id)
+   return colorSchemes.find((item) => item.id === id)
 }
 
 const solveColorSchema = () => {
@@ -63,6 +62,18 @@ const solveColorSchema = () => {
    }
 }
 
+// import { useMainStore } from "../stores/main"
+// const store = useMainStore()
+// if (
+//    localStorage.twColorScheme === "dark" ||
+//    (!("twColorScheme" in localStorage) &&
+//       window.matchMedia("(prefers-color-scheme: dark)").matches)
+// ) {
+//    document.documentElement.classList.add("dark")
+// } else {
+//    document.documentElement.classList.remove("dark")
+// }
+
 onBeforeMount(() => {
    console.log("onBeforeMount Footer")
    solveColorSchema()
@@ -77,27 +88,11 @@ onBeforeMount(() => {
          >
 
          <div class="flex items-center text-slate-600 dark:text-slate-400">
-            <Listbox v-model="colorScheme">
-               <ListboxButton>
+            <Popover>
+               <PopoverButton class="px-3 py-2">
                   <Component :is="colorScheme.icon" class="h-5 w-auto" />
-               </ListboxButton>
-               <transition
-                  leave-active-class="transition duration-100 ease-in"
-                  leave-from-class="opacity-100"
-                  leave-to-class="opacity-0">
-                  <ListboxOptions>
-                     <ListboxOption
-                        v-for="(item, index) in colorSchemaOptions"
-                        :key="index"
-                        :value="item"
-                        as="template">
-                        <li @click="setColorSchema(item.id)">
-                           {{ item.label }}
-                        </li>
-                     </ListboxOption>
-                  </ListboxOptions>
-               </transition>
-            </Listbox>
+               </PopoverButton>
+            </Popover>
 
             <div class="ml-6">
                <a
