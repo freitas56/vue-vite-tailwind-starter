@@ -1,3 +1,74 @@
+<script setup>
+import { ref, onBeforeMount, computed } from "vue"
+import {
+   Listbox,
+   ListboxButton,
+   ListboxOptions,
+   ListboxOption,
+} from "@headlessui/vue"
+import { BsGithub } from "@kalimahapps/vue-icons/bs"
+
+const isClassDark = localStorage.getItem("twColorScheme")
+console.log("🚀 ~ localStorage=> ", !!isClassDark)
+
+const isSystemDark = (obj) => {
+   if (obj.matches) {
+      return "dark"
+   } else {
+      return "light"
+   }
+}
+const mmObj = window.matchMedia("(prefers-color-scheme: dark)")
+mmObj.addEventListener("change", (res) => {
+   isSystemDark(res)
+   console.log("🚀 ", isSystemDark(res))
+})
+
+const classDark = isClassDark ? isClassDark : isSystemDark(mmObj)
+console.log("🚀 ", classDark)
+
+// import { useMainStore } from "../stores/main"
+// const store = useMainStore()
+// if (
+//    localStorage.twColorScheme === "dark" ||
+//    (!("twColorScheme" in localStorage) &&
+//       window.matchMedia("(prefers-color-scheme: dark)").matches)
+// ) {
+//    document.documentElement.classList.add("dark")
+// } else {
+//    document.documentElement.classList.remove("dark")
+// }
+const colorScheme = ref(null)
+
+const colorSchemeOptions = [
+   { id: "systemDark", label: "Escuro", icon: "" },
+   { id: "systemLight", label: "Claro", icon: "" },
+   { id: "classDark", label: "Escuro", icon: "" },
+   { id: "classLight", label: "Claro", icon: "" },
+]
+const solveColorScheme = (id) => {
+   return colorSchemeOptions.find((item) => item.id === id)
+}
+
+const solveColorSchema = () => {
+   const localStorageContent = localStorage.getItem("twColorScheme")
+   if (localStorageContent) {
+      console.log("localStorageContent")
+   } else {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+         colorScheme.value = solveColorScheme("systemDark")
+      } else {
+         colorScheme.value = solveColorScheme("systemLight")
+      }
+   }
+}
+
+onBeforeMount(() => {
+   console.log("onBeforeMount Footer")
+   solveColorSchema()
+}),
+</script>
+
 <template>
    <footer class="bg-slate-100 dark:bg-slate-800 py-4">
       <div class="flex items-center justify-between mx-auto max-w-7xl px-2">
@@ -6,15 +77,15 @@
          </a>
 
          <div class="flex items-center text-slate-600 dark:text-slate-400">
-            <Listbox v-model="themeIsDark">
-               <ListboxButton>{{ themeIsDark.label }}</ListboxButton>
+            <Listbox v-model="colorScheme">
+               <ListboxButton>{{ colorScheme.label }}</ListboxButton>
                <transition
                   leave-active-class="transition duration-100 ease-in"
                   leave-from-class="opacity-100"
                   leave-to-class="opacity-0">
                   <ListboxOptions>
                      <ListboxOption
-                        v-for="(item, index) in themeIsDarkOptions"
+                        v-for="(item, index) in colorSchemaOptions"
                         :key="index"
                         :value="item"
                         as="template">
@@ -25,16 +96,6 @@
                   </ListboxOptions>
                </transition>
             </Listbox>
-            <!-- <div
-                  class="rounded-full hover:opacity-90"
-                  @click="setThemeIsDark(true)">
-                  <BsMoonStars class="h-5 w-auto" />
-               </div> -->
-
-            <!-- <a class="rounded-full" hover:opacity-90 href="#">
-                  <BsSun class="h-5 w-auto" />
-               </a> -->
-            <!-- </div> -->
 
             <div class="ml-6">
                <a
@@ -47,46 +108,3 @@
       </div>
    </footer>
 </template>
-
-<script setup>
-import { ref, onMounted } from "vue"
-import {
-   Listbox,
-   ListboxButton,
-   ListboxOptions,
-   ListboxOption,
-} from "@headlessui/vue"
-import { BsGithub } from "@kalimahapps/vue-icons/bs"
-import { useMainStore } from "../stores/main"
-import { loadConfigFromFile } from "vite"
-const store = useMainStore()
-
-const themeIsDarkOptions = [
-   { id: "system", label: "Sistema" },
-   { id: "classDark", label: "Escuro" },
-   { id: "classLight", label: "Claro" },
-]
-
-onMounted(() => {
-   console.log("onMounted")
-   solveThemeIsDark()
-})
-
-const solveThemeIsDark = () => {
-   const localStorageContent = localStorage.getItem("twColorScheme")
-   if (localStorageContent && loadConfigFromFile !== "system") {
-      console.log(localStorageContent)
-      const found = themeIsDarkOptions.find(
-         (item) => item.id === localStorageContent
-      )
-      const colorScheme = ref(found)
-      store.setColorSchema(colorScheme)
-   } else {
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-         console.log("sistema dark")
-      } else {
-         console.log("sistema light")
-      }
-   }
-}
-</script>

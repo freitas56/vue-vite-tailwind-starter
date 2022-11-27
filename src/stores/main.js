@@ -3,12 +3,14 @@ import { defineStore } from "pinia"
 export const useMainStore = defineStore("main", {
    state: () => {
       return {
-         twColorSchema: undefined,
+         twColorSchemeByLocalStorage: false,
+         twColorScheme: undefined,
       }
    },
    actions: {
       setColorSchema(colorScheme) {
-         this.twColorSchema = colorScheme
+
+         this.twColorScheme = colorScheme
       },
    },
 })

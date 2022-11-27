@@ -29,18 +29,6 @@
          sizes="16x16"
          href="icons/favicon-16.png" />
       <link rel="icon" type="image/ico" href="favicon.ico" />
-
-      <script>
-         if (
-            localStorage.twColorScheme === "dark" ||
-            (!("twColorScheme" in localStorage) &&
-               window.matchMedia("(prefers-color-scheme: dark)").matches)
-         ) {
-            document.documentElement.classList.add("dark")
-         } else {
-            document.documentElement.classList.remove("dark")
-         }
-      </script>
    </head>
    <body class="h-full">
       <div id="app" class="h-full"></div>
