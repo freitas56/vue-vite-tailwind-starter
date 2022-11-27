@@ -66,7 +66,7 @@ const solveColorSchema = () => {
 onBeforeMount(() => {
    console.log("onBeforeMount Footer")
    solveColorSchema()
-}),
+})
 </script>
 
 <template>
