@@ -64,6 +64,14 @@ const solveColorSchema = () => {
    }
 }
 
+const openMySite = () => {
+   window.open("https://72fcosta.netlify.app", "_self")
+}
+
+const openMyRepo = () => {
+   window.open("https://github.com/72fcosta/vue-vite-tailwind-starter", "_self")
+}
+
 // import { useMainStore } from "../stores/main"
 // const store = useMainStore()
 // if (
@@ -84,15 +92,15 @@ onBeforeMount(() => {
 
 <template>
    <footer class="bg-slate-100 dark:bg-slate-800 py-4">
-      <div class="flex items-center justify-between mx-auto max-w-7xl px-2">
-         <a
-            href="https://72fcosta.netlify.app"
-            class="flex rounded-md gap-x-2 px-3 py-2 bg-red-400">
+      <div class="flex justify-between mx-auto max-w-7xl px-2">
+         <button
+            class="flex ring-2 ring-slate-400 rounded-md gap-x-3 px-3 py-2"
+            @click="openMySite">
             <BsClipboardHeart class="h-5 w-auto" />
-            <div class="text-base">72fcosta</div>
-         </a>
+            <span class="text-base">72fcosta</span>
+         </button>
 
-         <div class="flex items-center text-slate-600 dark:text-slate-400">
+         <div class="flex items-center justify-between">
             <Popover>
                <PopoverButton
                   class="flex ring-2 ring-slate-400 rounded-md gap-x-3 px-3 py-2">
@@ -102,13 +110,11 @@ onBeforeMount(() => {
                </PopoverButton>
             </Popover>
 
-            <div class="ml-6">
-               <a
-                  class="rounded-full hover:opacity-90"
-                  href="https://github.com/72fcosta/vue-vite-tailwind-starter">
-                  <BsGithub class="h-5 w-auto" />
-               </a>
-            </div>
+            <button
+               class="flex ring-2 ring-slate-400 rounded-md gap-x-3 px-3 py-2"
+               @click="openMyRepo">
+               <BsGithub class="h-5 w-auto" />
+            </button>
          </div>
       </div>
    </footer>
