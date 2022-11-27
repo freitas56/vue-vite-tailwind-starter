@@ -3,12 +3,14 @@ import { ref, onBeforeMount } from "vue"
 import {
    Popover,
    PopoverButton,
-   ListboxOptions,
-   ListboxOption,
+   // ListboxOptions,
+   // ListboxOption,
 } from "@headlessui/vue"
 import {
    BsGithub,
+   BsClipboardHeart,
    BsDisplay,
+   BsChevronUp,
    BsMoonStars,
    BsSun,
 } from "@kalimahapps/vue-icons/bs"
@@ -34,11 +36,11 @@ console.log("🚀 ", classDark)
 
 const colorScheme = ref(null)
 
-const colorSchemeOptions = [
-   { id: "system", label: "Sistema", icon: BsDisplay },
-   { id: "classDark", label: "Escuro", icon: BsMoonStars },
-   { id: "classLight", label: "Claro", icon: BsSun },
-]
+// const colorSchemeOptions = [
+//    { id: "system", label: "Sistema", icon: BsDisplay },
+//    { id: "classDark", label: "Escuro", icon: BsMoonStars },
+//    { id: "classLight", label: "Claro", icon: BsSun },
+// ]
 const colorSchemes = [
    { id: "systemDark", label: "Escuro", icon: BsMoonStars },
    { id: "systemLight", label: "Claro", icon: BsSun },
@@ -83,13 +85,19 @@ onBeforeMount(() => {
 <template>
    <footer class="bg-slate-100 dark:bg-slate-800 py-4">
       <div class="flex items-center justify-between mx-auto max-w-7xl px-2">
-         <a href="https://72fcosta.netlify.app/" class="hover:opacity-90"
-            >72fcosta</a
-         >
+         <a
+            href="https://72fcosta.netlify.app"
+            class="flex rounded-md gap-x-2 px-3 py-2 bg-red-400">
+            <BsClipboardHeart class="h-5 w-auto" />
+            <div class="text-base">72fcosta</div>
+         </a>
 
          <div class="flex items-center text-slate-600 dark:text-slate-400">
             <Popover>
-               <PopoverButton class="px-3 py-2">
+               <PopoverButton
+                  class="flex ring-2 ring-slate-400 rounded-md gap-x-3 px-3 py-2">
+                  <BsDisplay v-if="!isClassDark" class="h-5 w-auto" />
+                  <BsChevronUp v-else class="h-5 w-auto" />
                   <Component :is="colorScheme.icon" class="h-5 w-auto" />
                </PopoverButton>
             </Popover>
