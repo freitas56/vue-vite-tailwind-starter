@@ -6,7 +6,7 @@ import {
    ListboxOptions,
    ListboxOption,
 } from "@headlessui/vue"
-import { BsGithub } from "@kalimahapps/vue-icons/bs"
+import { BsGithub, BsMoonStars, BsSun } from "@kalimahapps/vue-icons/bs"
 
 const isClassDark = localStorage.getItem("twColorScheme")
 console.log("🚀 ~ localStorage=> ", !!isClassDark)
@@ -41,12 +41,12 @@ console.log("🚀 ", classDark)
 const colorScheme = ref(null)
 
 const colorSchemeOptions = [
-   { id: "systemDark", label: "Escuro", icon: "" },
-   { id: "systemLight", label: "Claro", icon: "" },
-   { id: "classDark", label: "Escuro", icon: "" },
-   { id: "classLight", label: "Claro", icon: "" },
+   { id: "systemDark", label: "Escuro", icon: BsMoonStars },
+   { id: "systemLight", label: "Claro", icon: BsSun },
+   { id: "classDark", label: "Escuro", icon: BsMoonStars },
+   { id: "classLight", label: "Claro", icon: BsSun },
 ]
-const solveColorScheme = (id) => {
+const solvedColorScheme = (id) => {
    return colorSchemeOptions.find((item) => item.id === id)
 }
 
@@ -56,9 +56,9 @@ const solveColorSchema = () => {
       console.log("localStorageContent")
    } else {
       if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-         colorScheme.value = solveColorScheme("systemDark")
+         colorScheme.value = solvedColorScheme("systemDark")
       } else {
-         colorScheme.value = solveColorScheme("systemLight")
+         colorScheme.value = solvedColorScheme("systemLight")
       }
    }
 }
@@ -72,13 +72,15 @@ onBeforeMount(() => {
 <template>
    <footer class="bg-slate-100 dark:bg-slate-800 py-4">
       <div class="flex items-center justify-between mx-auto max-w-7xl px-2">
-         <a href="https://diple.online" class="hover:opacity-90">
-            <img class="block h-10 w-auto" src="/imgs/logo.png" />
-         </a>
+         <a href="https://72fcosta.netlify.app/" class="hover:opacity-90"
+            >72fcosta</a
+         >
 
          <div class="flex items-center text-slate-600 dark:text-slate-400">
             <Listbox v-model="colorScheme">
-               <ListboxButton>{{ colorScheme.label }}</ListboxButton>
+               <ListboxButton>
+                  <Component :is="colorScheme.icon" class="h-5 w-auto" />
+               </ListboxButton>
                <transition
                   leave-active-class="transition duration-100 ease-in"
                   leave-from-class="opacity-100"
