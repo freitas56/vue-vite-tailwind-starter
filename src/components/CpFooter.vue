@@ -31,11 +31,11 @@ console.log("🚀 ", classDark)
 
 const colorScheme = ref(null)
 
-// const colorSchemeOptions = [
-//    { id: "system", label: "Sistema", icon: BsDisplay },
-//    { id: "classDark", label: "Escuro", icon: BsMoonStars },
-//    { id: "classLight", label: "Claro", icon: BsSun },
-// ]
+const colorSchemeOptions = [
+   { id: "system", label: "Sistema", icon: BsDisplay },
+   { id: "classDark", label: "Escuro", icon: BsMoonStars },
+   { id: "classLight", label: "Claro", icon: BsSun },
+]
 const colorSchemes = [
    { id: "systemDark", label: "Escuro", icon: BsMoonStars },
    { id: "systemLight", label: "Claro", icon: BsSun },
@@ -114,7 +114,7 @@ onBeforeMount(() => {
                      <div
                         class="flex flex-col bg-slate-100 rounded-md p-3 gap-2">
                         <button
-                           v-for="(item, index) in colorSchemes"
+                           v-for="(item, index) in colorSchemeOptions"
                            :key="index"
                            class="flex h-10 w-full items-center ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 gap-y-8 px-3 py-2">
                            <Component :is="item.icon" class="h-5 w-auto" />
