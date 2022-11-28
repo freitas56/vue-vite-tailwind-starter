@@ -98,7 +98,7 @@ onBeforeMount(() => {
          <div class="flex items-center justify-between gap-x-3">
             <Popover class="w-32 relative px-2">
                <PopoverButton
-                  class="flex w-full justify-center mx-auto ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 px-3 py-2">
+                  class="flex h-10 w-full items-center justify-center mx-auto ring-2 ring-slate-200 ring-offset-2 focus:outline-blue-500 rounded-md gap-x-2 px-3 py-2">
                   <BsDisplay v-if="!isClassDark" class="h-5 w-auto" />
                   <BsChevronUp v-else class="h-5 w-auto" />
                   <Component :is="colorScheme.icon" class="h-5 w-auto" />
@@ -116,7 +116,7 @@ onBeforeMount(() => {
                         <button
                            v-for="(item, index) in colorSchemes"
                            :key="index"
-                           class="flex w-full ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 gap-y-8 px-3 py-2">
+                           class="flex h-10 w-full items-center ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 gap-y-8 px-3 py-2">
                            <Component :is="item.icon" class="h-5 w-auto" />
                            <div class="text-b">{{ item.label }}</div>
                         </button>
@@ -126,7 +126,7 @@ onBeforeMount(() => {
             </Popover>
 
             <button
-               class="flex ring-2 ring-slate-200 ring-offset-2 rounded-md px-3 py-2"
+               class="flex h-10 items-center ring-2 ring-slate-200 ring-offset-2 rounded-md px-3 py-2"
                @click="openMyRepo">
                <BsGithub class="h-5 w-auto" />
             </button>
