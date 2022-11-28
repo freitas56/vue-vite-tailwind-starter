@@ -1,6 +1,11 @@
 <script setup>
 import { ref, onBeforeMount } from "vue"
-import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue"
+import {
+   Listbox,
+   ListboxButton,
+   ListboxOptions,
+   ListboxOption,
+} from "@headlessui/vue"
 import {
    BsGithub,
    BsClipboardHeart,
@@ -29,9 +34,9 @@ mmObj.addEventListener("change", (res) => {
 const classDark = isClassDark ? isClassDark : isSystemDark(mmObj)
 console.log("🚀 ", classDark)
 
-const colorScheme = ref(null)
+const selectedScheme = ref(null)
 
-const colorSchemeOptions = [
+const schemeOptions = [
    { id: "system", label: "Sistema", icon: BsDisplay },
    { id: "classDark", label: "Escuro", icon: BsMoonStars },
    { id: "classLight", label: "Claro", icon: BsSun },
@@ -52,9 +57,9 @@ const solveColorSchema = () => {
       console.log("localStorageContent")
    } else {
       if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-         colorScheme.value = solvedColorScheme("systemDark")
+         selectedScheme.value = solvedColorScheme("systemDark")
       } else {
-         colorScheme.value = solvedColorScheme("systemLight")
+         selectedScheme.value = solvedColorScheme("systemLight")
       }
    }
 }
@@ -87,48 +92,56 @@ onBeforeMount(() => {
 
 <template>
    <footer class="bg-slate-100 dark:bg-slate-800 py-4">
-      <div class="flex justify-between mx-auto max-w-7xl px-2">
+      <div class="flex items-center justify-between mx-auto max-w-7xl px-2">
          <button
-            class="flex ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 px-3 py-2"
+            class="flex bg-slate-50 h-10 ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 px-3 py-2"
             @click="openMySite">
-            <BsClipboardHeart class="h-5 w-auto" />
+            <BsClipboardHeart class="h-5 w-5" />
             <span class="text-base">72fcosta</span>
          </button>
 
          <div class="flex items-center justify-between gap-x-3">
-            <Popover class="w-32 relative px-2">
-               <PopoverButton
-                  class="flex h-10 w-full items-center justify-center mx-auto ring-2 ring-slate-200 ring-offset-2 focus:outline-blue-500 rounded-md gap-x-2 px-3 py-2">
-                  <BsDisplay v-if="!isClassDark" class="h-5 w-auto" />
-                  <BsChevronUp v-else class="h-5 w-auto" />
-                  <Component :is="colorScheme.icon" class="h-5 w-auto" />
-               </PopoverButton>
-               <transition
-                  enter-active-class="transition duration-200 ease-out"
-                  enter-from-class="translate-y-1 opacity-0"
-                  enter-to-class="translate-y-0 opacity-100"
-                  leave-active-class="transition duration-150 ease-in"
-                  leave-from-class="translate-y-0 opacity-100"
-                  leave-to-class="translate-y-1 opacity-0">
-                  <PopoverPanel class="absolute w-32 mb-6 bottom-full right-0">
-                     <div
-                        class="flex flex-col bg-slate-100 rounded-md p-3 gap-2">
-                        <button
-                           v-for="(item, index) in colorSchemeOptions"
+            <Listbox v-model="selectedScheme">
+               <div class="relative">
+                  <ListboxButton
+                     class="flex bg-slate-50 h-10 items-center justify-center ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 px-3 py-2">
+                     <BsDisplay v-if="!isClassDark" class="h-5 w-5" />
+                     <BsChevronUp v-else class="h-5 w-5" />
+                     <Component :is="selectedScheme.icon" class="h-5 w-5" />
+                  </ListboxButton>
+                  <transition
+                     enter-active-class="transition duration-200 ease-out"
+                     enter-from-class="translate-y-1 opacity-0"
+                     enter-to-class="translate-y-0 opacity-100"
+                     leave-active-class="transition duration-150 ease-in"
+                     leave-from-class="translate-y-0 opacity-100"
+                     leave-to-class="translate-y-1 opacity-0">
+                     <ListboxOptions
+                        class="absolute w-48 mb-6 bottom-full right-0 bg-slate-100 rounded-md px-2">
+                        <ListboxOption
+                           v-slot="{ selected }"
+                           v-for="(scheme, index) in schemeOptions"
                            :key="index"
-                           class="flex h-10 w-full items-center ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 gap-y-8 px-3 py-2">
-                           <Component :is="item.icon" class="h-5 w-auto" />
-                           <div class="text-b">{{ item.label }}</div>
-                        </button>
-                     </div>
-                  </PopoverPanel>
-               </transition>
-            </Popover>
+                           as="template"
+                           class="my-3">
+                           <li
+                              :class="
+                                 selected ? 'bg-amber-100' : 'text-gray-900'
+                              "
+                              class="flex bg-slate-50 h-10 items-center ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 px-3 py-2">
+                              <Component :is="scheme.icon" class="h-5 w-5" />
+                              <div class="text-b">{{ scheme.label }}</div>
+                           </li>
+                        </ListboxOption>
+                     </ListboxOptions>
+                  </transition>
+               </div>
+            </Listbox>
 
             <button
-               class="flex h-10 items-center ring-2 ring-slate-200 ring-offset-2 rounded-md px-3 py-2"
+               class="flex bg-slate-50 h-10 items-center ring-2 ring-slate-200 ring-offset-2 rounded-md px-3 py-2"
                @click="openMyRepo">
-               <BsGithub class="h-5 w-auto" />
+               <BsGithub class="h-5 w-5" />
             </button>
          </div>
       </div>

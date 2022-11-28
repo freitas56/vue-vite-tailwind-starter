@@ -12,6 +12,7 @@
       "icongen": "node src/utils/icongen.cjs"
    },
    "dependencies": {
+      "@headlessui/tailwindcss": "^0.1.1",
       "@headlessui/vue": "^1.7.4",
       "@kalimahapps/vue-icons": "^1.0.2",
       "axios": "^1.1.3",
