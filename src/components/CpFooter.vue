@@ -31,11 +31,11 @@ console.log("🚀 ", classDark)
 
 const colorScheme = ref(null)
 
-const colorSchemeOptions = [
-   { id: "system", label: "Sistema", icon: BsDisplay },
-   { id: "classDark", label: "Escuro", icon: BsMoonStars },
-   { id: "classLight", label: "Claro", icon: BsSun },
-]
+// const colorSchemeOptions = [
+//    { id: "system", label: "Sistema", icon: BsDisplay },
+//    { id: "classDark", label: "Escuro", icon: BsMoonStars },
+//    { id: "classLight", label: "Claro", icon: BsSun },
+// ]
 const colorSchemes = [
    { id: "systemDark", label: "Escuro", icon: BsMoonStars },
    { id: "systemLight", label: "Claro", icon: BsSun },
@@ -96,9 +96,9 @@ onBeforeMount(() => {
          </button>
 
          <div class="flex items-center justify-between gap-x-3">
-            <Popover class="relative">
+            <Popover class="w-32 relative px-2">
                <PopoverButton
-                  class="flex ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 px-3 py-2">
+                  class="flex w-full justify-center mx-auto ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 px-3 py-2">
                   <BsDisplay v-if="!isClassDark" class="h-5 w-auto" />
                   <BsChevronUp v-else class="h-5 w-auto" />
                   <Component :is="colorScheme.icon" class="h-5 w-auto" />
@@ -110,11 +110,11 @@ onBeforeMount(() => {
                   leave-active-class="transition duration-150 ease-in"
                   leave-from-class="translate-y-0 opacity-100"
                   leave-to-class="translate-y-1 opacity-0">
-                  <PopoverPanel class="absolute bottom-14 right-0">
+                  <PopoverPanel class="absolute w-32 mb-6 bottom-full right-0">
                      <div
                         class="flex flex-col bg-slate-100 rounded-md p-3 gap-2">
                         <button
-                           v-for="(item, index) in colorSchemeOptions"
+                           v-for="(item, index) in colorSchemes"
                            :key="index"
                            class="flex w-full ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 gap-y-8 px-3 py-2">
                            <Component :is="item.icon" class="h-5 w-auto" />
