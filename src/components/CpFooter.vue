@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onBeforeMount } from "vue"
+import { ref, computed, onMounted, onUpdated } from "vue"
 import {
    Listbox,
    ListboxButton,
@@ -15,55 +15,55 @@ import {
    BsSun,
 } from "@kalimahapps/vue-icons/bs"
 
-const isClassDark = localStorage.getItem("twColorScheme")
-console.log("🚀 ~ localStorage=> ", !!isClassDark)
-
-const isSystemDark = (obj) => {
-   if (obj.matches) {
-      return "dark"
-   } else {
-      return "light"
-   }
-}
-const mmObj = window.matchMedia("(prefers-color-scheme: dark)")
-mmObj.addEventListener("change", (res) => {
-   isSystemDark(res)
-   console.log("🚀 ", isSystemDark(res))
+//
+const cScheme = ref({
+   system: null,
+   dark: null,
+   icon: "",
+   label: "",
 })
 
-const classDark = isClassDark ? isClassDark : isSystemDark(mmObj)
-console.log("🚀 ", classDark)
-
-const selectedScheme = ref(null)
-
-const schemeOptions = [
-   { id: "system", label: "Sistema", icon: BsDisplay },
-   { id: "classDark", label: "Escuro", icon: BsMoonStars },
-   { id: "classLight", label: "Claro", icon: BsSun },
-]
-const colorSchemes = [
-   { id: "systemDark", label: "Escuro", icon: BsMoonStars },
-   { id: "systemLight", label: "Claro", icon: BsSun },
-   { id: "classDark", label: "Escuro", icon: BsMoonStars },
-   { id: "classLight", label: "Claro", icon: BsSun },
-]
-const solvedColorScheme = (id) => {
-   return colorSchemes.find((item) => item.id === id)
-}
-
-const solveColorSchema = () => {
+const solveCSchema = () => {
+   // system
    const localStorageContent = localStorage.getItem("twColorScheme")
-   if (localStorageContent) {
-      console.log("localStorageContent")
+   const isSystem = !localStorageContent
+   cScheme.value.system = isSystem
+   // icon
+   cScheme.value.icon = BsDisplay
+   // label
+   cScheme.value.label = "Sistema"
+   // dark
+   let isDark
+   if (isSystem) {
+      isDark = window.matchMedia("(prefers-color-scheme: dark)").matches
    } else {
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-         selectedScheme.value = solvedColorScheme("systemDark")
-      } else {
-         selectedScheme.value = solvedColorScheme("systemLight")
-      }
+      isDark = localStorageContent === "dark"
    }
+   cScheme.value.dark = isDark
 }
 
+const cTypeIcon = computed(() => {
+   const typeIcon = cScheme.value.system ? BsDisplay : BsChevronUp
+   return typeIcon
+})
+
+const cThemeIcon = computed(() => {
+   const themeIcon = cScheme.value.dark ? BsMoonStars : BsSun
+   return themeIcon
+})
+// system changed
+const mmObj = window.matchMedia("(prefers-color-scheme: dark)")
+mmObj.addEventListener("change", (res) => {
+   cScheme.value.dark = res.matches
+})
+// class changed
+const schemeOptions = [
+   { system: true, dark: false, icon: BsDisplay, label: "Sistema" },
+   { system: true, dark: true, icon: BsDisplay, label: "Sistema" },
+   { system: false, dark: true, icon: BsMoonStars, label: "Escuro" },
+   { system: false, dark: false, icon: BsSun, label: "Claro" },
+]
+//
 const openMySite = () => {
    window.open("https://72fcosta.netlify.app", "_self")
 }
@@ -72,21 +72,14 @@ const openMyRepo = () => {
    window.open("https://github.com/72fcosta/vue-vite-tailwind-starter", "_self")
 }
 
-// import { useMainStore } from "../stores/main"
-// const store = useMainStore()
-// if (
-//    localStorage.twColorScheme === "dark" ||
-//    (!("twColorScheme" in localStorage) &&
-//       window.matchMedia("(prefers-color-scheme: dark)").matches)
-// ) {
-//    document.documentElement.classList.add("dark")
-// } else {
-//    document.documentElement.classList.remove("dark")
-// }
+onMounted(() => {
+   console.log("onMounted Footer")
+   solveCSchema()
+})
 
-onBeforeMount(() => {
-   console.log("onBeforeMount Footer")
-   solveColorSchema()
+onUpdated(() => {
+   console.log("onUpdated Footer")
+   solveCSchema()
 })
 </script>
 
@@ -101,13 +94,12 @@ onBeforeMount(() => {
          </button>
 
          <div class="flex items-center justify-between gap-x-3">
-            <Listbox v-model="selectedScheme">
+            <Listbox v-model="cScheme">
                <div class="relative">
                   <ListboxButton
                      class="flex bg-slate-50 h-10 items-center justify-center ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 px-3 py-2">
-                     <BsDisplay v-if="!isClassDark" class="h-5 w-5" />
-                     <BsChevronUp v-else class="h-5 w-5" />
-                     <Component :is="selectedScheme.icon" class="h-5 w-5" />
+                     <Component :is="cTypeIcon" class="h-5 w-5" />
+                     <Component :is="cThemeIcon" class="h-5 w-5" />
                   </ListboxButton>
                   <transition
                      enter-active-class="transition duration-200 ease-out"
@@ -120,15 +112,17 @@ onBeforeMount(() => {
                         class="absolute w-48 mb-6 bottom-full right-0 bg-slate-100 rounded-md px-2">
                         <ListboxOption
                            v-slot="{ selected }"
-                           v-for="(scheme, index) in schemeOptions"
-                           :key="index"
+                           v-for="scheme in schemeOptions"
+                           :key="scheme.label"
+                           :value="scheme"
                            as="template"
                            class="my-3">
                            <li
-                              :class="
-                                 selected ? 'bg-amber-100' : 'text-gray-900'
-                              "
-                              class="flex bg-slate-50 h-10 items-center ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 px-3 py-2">
+                              class="flex cursor-pointer bg-slate-50 h-10 items-center ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 px-3 py-2">
+                              <span> => {{ selected }}</span>
+                              <span v-if="selected" class="text-red-600"
+                                 >X</span
+                              >
                               <Component :is="scheme.icon" class="h-5 w-5" />
                               <div class="text-b">{{ scheme.label }}</div>
                            </li>
