@@ -1,4 +1,4 @@
-![gh-cover](https://user-images.githubusercontent.com/25357754/200299609-436f40dd-f45f-4803-9041-7b3a146617c1.png)
+![gh-cover](https://user-images.githubusercontent.com/117942263/205006813-bad69292-bf51-426b-a8ed-0ceb8bbe63e2.png)
 
 ## Features
 
