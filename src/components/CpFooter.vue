@@ -7,79 +7,96 @@ import {
    ListboxOption,
 } from "@headlessui/vue"
 import {
-   BsGithub,
-   BsClipboardHeart,
    BsDisplay,
    BsChevronUp,
    BsMoonStars,
    BsSun,
+   BsGithub,
+   BsClipboardHeart,
 } from "@kalimahapps/vue-icons/bs"
 
-//
-const cScheme = ref({
-   system: null,
-   dark: null,
-   icon: "",
-   label: "",
-})
-
-const solveCSchema = () => {
-   // system
-   const localStorageContent = localStorage.getItem("twColorScheme")
-   const isSystem = !localStorageContent
-   cScheme.value.system = isSystem
-   // icon
-   cScheme.value.icon = BsDisplay
-   // label
-   cScheme.value.label = "Sistema"
-   // dark
-   let isDark
-   if (isSystem) {
-      isDark = window.matchMedia("(prefers-color-scheme: dark)").matches
-   } else {
-      isDark = localStorageContent === "dark"
-   }
-   cScheme.value.dark = isDark
-}
-
-const cTypeIcon = computed(() => {
-   const typeIcon = cScheme.value.system ? BsDisplay : BsChevronUp
-   return typeIcon
-})
-
-const cThemeIcon = computed(() => {
-   const themeIcon = cScheme.value.dark ? BsMoonStars : BsSun
-   return themeIcon
-})
-// system changed
-const mmObj = window.matchMedia("(prefers-color-scheme: dark)")
-mmObj.addEventListener("change", (res) => {
-   cScheme.value.dark = res.matches
-})
-// class changed
-const schemeOptions = [
-   { system: true, dark: false, icon: BsDisplay, label: "Sistema" },
-   { system: true, dark: true, icon: BsDisplay, label: "Sistema" },
-   { system: false, dark: true, icon: BsMoonStars, label: "Escuro" },
-   { system: false, dark: false, icon: BsSun, label: "Claro" },
-]
-//
 const openMySite = () => {
    window.open("https://72fcosta.netlify.app", "_self")
 }
-
 const openMyRepo = () => {
    window.open("https://github.com/72fcosta/vue-vite-tailwind-starter", "_self")
 }
 
-onMounted(() => {
-   console.log("onMounted Footer")
-   solveCSchema()
+const solveIsDark = (isDark) => {
+   if (isDark) {
+      document.documentElement.classList.add("dark")
+   } else {
+      document.documentElement.classList.remove("dark")
+   }
+   selectedScheme.value.dark = isDark
+}
+const systemThemeIsDark = window.matchMedia("(prefers-color-scheme: dark)")
+const localStorageContent = localStorage.getItem("twColorScheme")
+const isSystem = !localStorageContent
+
+const schemeOptions = [
+   {
+      index: 0,
+      system: true,
+      dark: systemThemeIsDark.matches,
+      icon: BsDisplay,
+      label: "Sistema",
+   },
+   {
+      index: 1,
+      system: false,
+      dark: true,
+      icon: BsMoonStars,
+      label: "Escuro",
+   },
+   {
+      index: 2,
+      system: false,
+      dark: false,
+      icon: BsSun,
+      label: "Claro",
+   },
+]
+const selectedScheme = ref({
+   id: null,
+   system: null,
+   dark: null,
+   label: null,
 })
 
+systemThemeIsDark.addEventListener("change", (res) => {
+   const isDark = res.matches
+   solveIsDark(isDark)
+})
+
+const cTypeIcon = computed(() => {
+   const typeIcon = selectedScheme.value.system ? BsDisplay : BsChevronUp
+   return typeIcon
+})
+const cThemeIcon = computed(() => {
+   const themeIcon = selectedScheme.value.dark ? BsMoonStars : BsSun
+   return themeIcon
+})
+
+onMounted(() => {
+   let indexSchemeOptions
+   if (isSystem) {
+      indexSchemeOptions = 0
+   } else {
+      indexSchemeOptions = localStorageContent === "dark" ? 1 : 2
+   }
+   selectedScheme.value = schemeOptions[indexSchemeOptions]
+   const isDark = selectedScheme.value.dark
+   solveIsDark(isDark)
+})
 onUpdated(() => {
-   console.log("onUpdated Footer")
-   solveCSchema()
+   const isDark = selectedScheme.value.dark
+   if (selectedScheme.value.system) {
+      localStorage.removeItem("twColorScheme")
+   } else {
+      localStorage.twColorScheme = isDark ? "dark" : "light"
+   }
+   solveIsDark(isDark)
 })
 </script>
 
@@ -94,7 +111,7 @@ onUpdated(() => {
          </button>
 
          <div class="flex items-center justify-between gap-x-3">
-            <Listbox v-model="cScheme">
+            <Listbox v-model="selectedScheme">
                <div class="relative">
                   <ListboxButton
                      class="flex bg-slate-50 h-10 items-center justify-center ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 px-3 py-2">
@@ -113,16 +130,13 @@ onUpdated(() => {
                         <ListboxOption
                            v-slot="{ selected }"
                            v-for="scheme in schemeOptions"
-                           :key="scheme.label"
+                           :key="scheme.index"
                            :value="scheme"
                            as="template"
                            class="my-3">
                            <li
-                              class="flex cursor-pointer bg-slate-50 h-10 items-center ring-2 ring-slate-200 ring-offset-2 rounded-md gap-x-2 px-3 py-2">
-                              <span> => {{ selected }}</span>
-                              <span v-if="selected" class="text-red-600"
-                                 >X</span
-                              >
+                              :class="selected ? 'ring-sky-600' : 'ring-slate-200'"
+                              class="flex cursor-pointer bg-slate-50 h-10 items-center ring-2 ring-offset-2 rounded-md gap-x-2 px-3 py-2">
                               <Component :is="scheme.icon" class="h-5 w-5" />
                               <div class="text-b">{{ scheme.label }}</div>
                            </li>
